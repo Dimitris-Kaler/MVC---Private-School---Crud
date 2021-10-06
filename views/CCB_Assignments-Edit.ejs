@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%-include('head')%>
+
+
+        <title>CCB Assignments Edit Form</title>
+
+
+</head>
+
+<body>
+    <div id="container">
+        <!---NAVIGATOR-->
+        <%- include('navbar') %>
+
+
+            <div class="form-message main">
+                <button onclick="window.location.href='/CCB_Assignments-Form'" id="addBtn"
+                    class="btn-primary m-1 ">Return
+                    to CCB_Assignments</button>
+
+                <form id="assignmentsForm" name="assignmentForm" class="basic-form ml-1"
+                    action="/CCB_Assignments-Form/update" method="post">
+                    <div id="form-body">
+                        <h3 class="form-heading">Edit New Assignment</h3>
+                        <div class="form-group">
+                            <label for="assignment-title">Title</label>
+                            <input type="text" class="form-control basic-input" id="assignment-title" name="title"
+                                placeholder="ex.Team-project1,ex2.build e-shop" aria-label="First name"
+                                value="<%=result.title %>">
+                            <span class="error-message  coursesError">
+                        </div>
+                        <div class="form-group">
+                            <label for="assignmentDescription">Description</label>
+                            <textarea name="description" placeholder="Assignment Description"
+                                value="<%= result.description %>" id="assignmentDescription"
+                                class="form-control basic-input"></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="submission-date">Submission Date </label>
+                            <input type="date" class="form-control basic-input" id="submission-date" name="subTime"
+                                placeholder="ex.2021-05-02" value="<%=result.sub_date_time %>">
+                            <span class="error-message  coursesError">
+                            </span>
+                        </div>
+                        <div class="form-group">
+                            <label for="oral-mark">Oral Mark</label>
+                            <input type="number" class="form-control basic-input" id="oral-mark" name="maxOralMark"
+                                placeholder="ex.19" value="<%=result.max_oral_mark %>">>
+                            <span class="error-message  coursesError"></span>
+
+                        </div>
+                        <div class="form-group">
+                            <label for="total-mark">Total Mark</label>
+                            <input type="number" class="form-control basic-input" id="total-mark" name="maxTotalMark"
+                                placeholder="ex.75" value="<%=result.max_total_mark%>">
+                            <span class="error-message  coursesError">
+                            </span>
+                        </div>
+                        <div class="form-group">
+                            <input type="number" class="form-control basic-input hidden" id="id" name="id"
+                                value="<%=result.id%>" hidden readonly>
+                        </div>
+                        <div class="form-button1">
+                            <label for="submitBtn"></label>
+                            <input type="submit" class="btn btn-primary" id="submitBtn" value="Submit">
+                        </div>
+                    </div>
+                </form>
+                <!------FOOOTER----->
+                <%-include('footer')%>
+            </div>
+    </div>
+
+
+    <script type="text/javascript" src="/javascripts/assignments.js"></script>
+</body>
+
+</html>

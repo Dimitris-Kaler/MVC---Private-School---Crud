@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%-include('head')%>
+
+
+        <title>CCB Trainers Form</title>
+
+
+</head>
+
+<body>
+    <div id="container">
+        <!---NAVIGATOR-->
+        <%- include('navbar') %>
+
+            <!---MAIN WITH FORMS--->
+            <div class="form-message main">
+                <!-- <h2 class="animate-heading">Trainers Table</h2> -->
+                <button id="addBtn" class="btn-primary m-1 "><svg xmlns="http://www.w3.org/2000/svg" width="16"
+                        height="16" fill="currentColor" class="bi bi-person-plus" viewBox="0 0 16 16">
+                        <path
+                            d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H1s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C9.516 10.68 8.289 10 6 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z" />
+                        <path fill-rule="evenodd"
+                            d="M13.5 5a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5z" />
+                    </svg> Add Trainer</button>
+                <!----FORM-->
+                <form id="trainerForm" class="basic-form ml-1 hidden" action="/CCB_Trainers-Form" method="post">
+                    <div id="form-body">
+                        <h3 class="form-heading">Add New Trainer</h3>
+                        <div class="form-group">
+                            <label for="first-name">First Name</label>
+                            <input type="text" class="form-control basic-input" id="first-name" name="fname"
+                                placeholder="ex.George" aria-label="First name" value="">
+                            <p class="error-message  ">
+                            </p>
+                        </div>
+                        <div class="form-group">
+                            <label for="last-name">Last Name</label>
+                            <input type="text" class="form-control basic-input" id="last-name" name="lname"
+                                placeholder="ex. Papadopoulos" value="">
+                            <p class="error-message  ">
+                            </p>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" class="form-control basic-input" id="subject" name="subject"
+                                placeholder="ex.Front end" value="">
+                            <p class="error-message ">
+                            </p>
+                        </div>
+                        <div class="form-button">
+                            <label for="submitBtn"></label>
+                            <input type="submit" class="btn btn-primary" id="submitBtn" value="Submit">
+                        </div>
+                        <!-- <input type="button" onclick="update_url()" class=" btn btn-primary m-1" id="editBtn" value="Edit"> -->
+                        <!-- <a href="/CCB_Trainers-Form/update" class=" btn btn-primary m-1" id="editBtn">Edit</a> -->
+
+                    </div>
+                </form>
+
+
+
+
+                <!--TABLE-->
+                <div id="table-area">
+
+                    <table id="table-trainers" class="display table">
+
+                        <h4 class="table-heading">
+                            <%=tableTitle%>
+                        </h4>
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>First Name</th>
+                                <th>Last Name</th>
+                                <th>Subject</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbbody>
+                            <% for (trainer in trainersArray.data){%>
+                                <tr>
+                                    <td>
+                                        <%=trainersArray.data[trainer].id%>
+                                    </td>
+                                    <td>
+                                        <%=trainersArray.data[trainer].first_name%>
+                                    </td>
+                                    <td>
+                                        <%=trainersArray.data[trainer].last_name%>
+                                    </td>
+                                    <td>
+                                        <%=trainersArray.data[trainer].subject%>
+                                    </td>
+                                    <td><span><a href='/CCB_Trainers-Form/update/<%= trainersArray.data[trainer].id %>'
+                                                class="fas fa-pencil-alt update anchor" title="Edit"></a></span>
+                                        <span><a href='/CCB_Trainers-Form/delete/<%=trainersArray.data[trainer].id %>'
+                                                class="far fa-trash-alt deleteRef anchor" title="Delete"
+                                                data-bs-toggle="modal" data-bs-target="#example"></a></span>
+                                    </td>
+                                </tr>
+                                <%}%>
+                                    </tbody>
+
+                    </table>
+
+
+                </div>
+
+                <!-------------------------DELETE MODAL------------>
+
+                <div class="modal fade" id="example" tabindex="-1" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Delete Data</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                Are You Sure You Want Delete This Row
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No!!!!</button>
+                                <a href='/CCB_Trainers-Form/delete/<%=trainersArray.data[trainer].id %>'
+                                    class="btn btn-primary modalConfirm ">Yes Delete This Data</a>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-----------FOOTER-------->
+                <%-include('footer')%>
+
+            </div>
+    </div>
+    <script type="text/javascript" src='/javascripts/trainers.js'></script>
+</body>
+
+</html>

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%-include('head')%>
+
+
+        <title>CCB Courses Form</title>
+
+
+</head>
+
+<body>
+    <div id="container">
+        <!---NAVIGATOR----->
+        <%- include('navbar') %>
+            <!---MAIN WITH FORMS--->
+            <div class="form-message main">
+                <!-- <h2 class="animate-heading">Students Form</h2> -->
+                <button id="addBtn" class="btn-primary m-1 "><svg xmlns="http://www.w3.org/2000/svg" width="16"
+                        height="16" fill="currentColor" class="bi bi-book" viewBox="0 0 16 16">
+                        <path
+                            d="M1 2.828c.885-.37 2.154-.769 3.388-.893 1.33-.134 2.458.063 3.112.752v9.746c-.935-.53-2.12-.603-3.213-.493-1.18.12-2.37.461-3.287.811V2.828zm7.5-.141c.654-.689 1.782-.886 3.112-.752 1.234.124 2.503.523 3.388.893v9.923c-.918-.35-2.107-.692-3.287-.81-1.094-.111-2.278-.039-3.213.492V2.687zM8 1.783C7.015.936 5.587.81 4.287.94c-1.514.153-3.042.672-3.994 1.105A.5.5 0 0 0 0 2.5v11a.5.5 0 0 0 .707.455c.882-.4 2.303-.881 3.68-1.02 1.409-.142 2.59.087 3.223.877a.5.5 0 0 0 .78 0c.633-.79 1.814-1.019 3.222-.877 1.378.139 2.8.62 3.681 1.02A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.293-.455c-.952-.433-2.48-.952-3.994-1.105C10.413.809 8.985.936 8 1.783z" />
+                    </svg> Add Course</button>
+
+                <!---FORM-->
+
+                <form id="coursesForm" class="hidden basic-form ml-1" action="/CCB_Courses-Form" method="post">
+                    <div id="form-body">
+                        <h3 class="form-heading">Add New Course</h3>
+                        <div class="form-group">
+                            <label for="title">Title</label>
+                            <input type="text" class="form-control basic-input" id="title" name="title"
+                                placeholder="ex.CB-8" aria-label="First name">
+                            <span class="error-message coursesError">
+                            </span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="stream">Stream</label>
+                            <input type="text" class="form-control basic-input" id="stream" name="stream"
+                                placeholder="ex.JavaScript">
+                            <span class="error-message coursesError">
+                            </span>
+                        </div>
+                        <div class="form-group">
+                            <label for="type-of-course">Select Type</label>
+                            <select class="form-select basic-input" id="type-of-course"
+                                aria-label="Default select example" name="type">
+                                <option hidden selected value="Choose type of the course">Choose type of the course
+                                </option>
+                                <option value="Part-Time">Part-Time</option>
+                                <option value="Full-Time">Full-Time</option>
+                            </select>
+                            <span class="error-message type coursesError">
+                            </span>
+                        </div>
+                        <div class="form-group">
+                            <label for="start-date">Start Date</label>
+                            <input type="date" class="form-control basic-input" id="start-date" name="startDate"
+                                placeholder="Another input">
+                            <span class="error-message coursesError">
+                            </span>
+                        </div>
+                        <div class="form-group">
+                            <label for="end-date">End Date</label>
+                            <input type="date" class="form-control basic-input" id="end-date" name="endDate"
+                                placeholder="Another input">
+                            <span class="error-message coursesError">
+                            </span>
+                        </div>
+                        <div class="form-button1">
+                            <label for="submitBtn"></label>
+                            <input type="submit" class="btn btn-primary" id="submitBtn" value="Submit">
+                        </div>
+
+                    </div>
+                </form>
+                <!--TABLE COURSES-->
+                <div id="table-area">
+                    <table id="table-courses" class="display table">
+                        <h4 class="table-heading">
+                            <%=tableTitle%>
+                        </h4>
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Title</th>
+                                <th>Stream</th>
+                                <th>Type</th>
+                                <th>Start Date</th>
+                                <th>End Date</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            <% for(let course in coursesArray.data) { %>
+                                <tr>
+                                    <td>
+                                        <%= coursesArray.data[course].id %>
+                                    </td>
+                                    <td>
+                                        <%= coursesArray.data[course].title %>
+                                    </td>
+                                    <td>
+                                        <%= coursesArray.data[course].stream %>
+                                    </td>
+                                    <td>
+                                        <%= coursesArray.data[course].type %>
+                                    </td>
+                                    <td>
+                                        <%= coursesArray.data[course].start_date %>
+                                    </td>
+                                    <td>
+                                        <%= coursesArray.data[course].end_date %>
+                                    </td>
+                                    <td><span><a href='/CCB_Courses-Form/update/<%=coursesArray.data[course].id%>'
+                                                class="fas fa-pencil-alt update anchor" title="Edit"></a></span>
+                                        <span><a href="/CCB_Courses-Form/delete/<%=coursesArray.data[course].id%>"
+                                                data-bs-toggle="modal" data-bs-target="#example"
+                                                class="deleteRef far fa-trash-alt anchor"></i>
+                                    </td></span>
+                                </tr>
+                                <% } %>
+
+                        </tbody>
+                    </table>
+
+                </div>
+
+                <!-------------------------DELETE MODAL------------>
+
+                <div class="modal fade" id="example" tabindex="-1" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Delete Data</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                Are You Sure You Want Delete This Row
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No!!!!</button>
+                                <a href="" class="modalConfirm btn btn-primary">Yes Delete This Data</a>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-----FOOTER-->
+                <%-include('footer')%>
+            </div>
+    </div>
+
+    <script type="text/javascript" src="/javascripts/courses.js"></script>
+</body>
+
+</html>

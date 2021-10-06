@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%-include('head')%>
+
+        <title>Cube Coding Bootcamp Index</title>
+</head>
+
+<body>
+    <div id="container">
+        <!----NAVIGATION MENU---->
+        <%- include('navbar') %>
+
+            <!-----MAIN----->
+
+            <div class="message-layout">
+                <h2 class="animate-heading">Learn From The Best</h2>
+                <h2 class="animate-heading1">Launch Your Coding Career With CCB</h2>
+                <!-- <div class="custom-shape-divider-bottom-1621820581">
+                <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                    <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
+                </svg>
+            </div> -->
+            </div>
+
+            <!-------ABOUT US------>
+            <div id="about">
+                <h2 class="animate-heading1 homepage-headings">About us</h2>
+                <div class="about-tables">
+                    <div class="card m-1 about-card custom-card" style="width: 20rem;">
+                        <!-- <div class="col-lg-4 col-md-6 "> -->
+                        <img class="card-img-top about-img" src="/images/1boximg.jpg" alt="Card image cap">
+                        <div class="card-body">
+                            <p class="card-text">
+                            <h4>History</h4>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos, sunt placeat. Quisquam
+                            cum
+                            assumenda a magni officia voluptatibus soluta dolor.</p>
+                        </div>
+                    </div>
+                    <div class="card m-1 about-card custom-card" style="width: 20rem;">
+                        <!-- <div class="col-lg-4 col-md-6 "> -->
+                        <img class="card-img-top about-img" src="/images/2boximg.jpg" alt="Career Tech">
+                        <div class="card-body">
+                            <p class="card-text">
+                            <h4>Career Tech</h4>
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut, at quia? Quasi obcaecati
+                            veritatis voluptatem minima aspernatur nobis animi quia!</p>
+                        </div>
+                    </div>
+                    <div class="card m-1 about-card custom-card" style="width: 20rem;">
+                        <!-- <div class="col-lg-4 col-md-6 "> -->
+                        <img class="card-img-top about-img" src="/images/3boximg.png"
+                            alt="Define the future of education">
+                        <div class="card-body">
+                            <p class="card-text">
+                            <h4>Define the Future of Education</h4>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas porro voluptatem sint est.
+                            Fuga id
+                            natus sint adipisci enim earum!</p>
+                        </div>
+                    </div>
+                    <div class="card m-1 about-card custom-card" style="width: 20rem;">
+                        <!-- <div class="col-lg-4 col-md-6 "> -->
+                        <img class="card-img-top about-img" src="/images/4boximg.jpg" alt="More than a tech science">
+                        <div class="card-body">
+                            <p class="card-text">
+                            <h4>More than Tech Science</h4>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam dignissimos natus pariatur
+                            beatae repellendus eligendi iusto quam atque recusandae vitae!</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- container -->
+            <div class="contact-container" id="contact">
+
+                <h2 class="animate-heading1 homepage-headings">Contact us</h2>
+                <!-- row -->
+
+                <div class="row">
+
+                    <!-- contact form -->
+                    <div class="col-md-6">
+                        <!-- <div class="contact" id="Contact"> -->
+                        <form id="contact-form" action="/CCB_Customers-Table" method="POST">
+                            <legend>Contact Form</legend>
+                            <label for="First Name">First Name:</label>
+                            <input type="text" placeholder="ex. George" id="First Name" name="first_name"
+                                class="input-text">
+                            <p class="error-contactForm"></p>
+
+                            <label for="Last Name">Last Name:</label>
+                            <input type="text" placeholder="ex.Papadopoulos" id="Last Name" name="last_name"
+                                class="input-text">
+                            <p class="error-contactForm"></p>
+
+                            <label for="phone">Telephone:</label>
+                            <input type="tel" id="phone" name="telephone" placeholder="ex. 699-9999999  10 numbers"
+                                class="input-text">
+                            <p class="error-contactForm"></p>
+
+                            <label for="textarea">How can we help you:</label>
+                            <textarea type="text" id="textarea" rows=6 placeholder="Write Your Message" class="textarea"
+                                name="description"></textarea>
+                            <p class="error-contactForm"></p>
+                            <input type="text" id="id" name="id" class="input-text" hidden readonly>
+
+
+                            <input type="submit" value="submit" class="contact-submit btn-primary m-1 ">
+                        </form>
+                        <!-- </div> -->
+                    </div>
+
+                    <div class="col-md-5 col-md-offset-1">
+                        <h4>Contact Information</h4>
+                        <ul class="contact-ul">
+                            <li><i class="fa fa-envelope"></i>CCB@gmail.com</li>
+                            <li><i class="fa fa-phone"></i>(555) 555-5555</li>
+                            <li><i class="fa fa-map-marker"></i>234 Lorem ipsum </li>
+                        </ul>
+
+                        <!---MAP--->
+                        <div class="google-maps">
+                            <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6289.144876048392!2d23.73456012624142!3d37.98710631888515!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14a1bd369acac893%3A0x2600bd2df93b4d72!2zzpXOvs6sz4HPh861zrnOsSwgzpHOuM6uzr3OsQ!5e0!3m2!1sel!2sgr!4v1617412691998!5m2!1sel!2sgr"
+                                allowfullscreen="" loading="lazy"></iframe>
+                        </div>
+                    </div>
+
+                    <!-- /contact map -->
+
+                </div>
+                <!-- contact information -->
+
+            </div>
+
+
+
+
+
+            <!------FOOTER------>
+            <%-include('footer')%>
+    </div>
+
+
+
+
+    <script type="text/javascript" src="/javascripts/index.js"></script>
+</body>
+
+</html>

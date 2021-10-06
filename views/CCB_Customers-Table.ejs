@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%-include('head')%>
+
+
+        <title>CCB Customers Table</title>
+
+
+</head>
+
+<body>
+    <div id="container">
+        <!---NAVIGATOR-->
+        <%- include('navbar') %>
+            <!---MAIN WITH FORMS--->
+            <div class="form-message main">
+
+                <!--TABLE-->
+                <div id="table-area">
+
+                    <table id="table-customers" class="display table">
+
+                        <h4 class="table-heading">
+                            <%=tableTitle%>
+                        </h4>
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>First Name</th>
+                                <th>Last Name</th>
+                                <th>Telephone</th>
+                                <th>Description</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbbody>
+                            <% for (customer in customersArray.data){%>
+                                <tr>
+                                    <td>
+                                        <%=customersArray.data[customer].id%>
+                                    </td>
+                                    <td>
+                                        <%=customersArray.data[customer].first_name%>
+                                    </td>
+                                    <td>
+                                        <%=customersArray.data[customer].last_name%>
+                                    </td>
+                                    <td>
+                                        <%=customersArray.data[customer].telephone %>
+                                    </td>
+                                    <td>
+                                        <%=customersArray.data[customer].description %>
+                                    </td>
+                                    <td> <span><a
+                                                href='/CCB_Customers-Table/delete/<%=customersArray.data[customer].id %>'
+                                                class="far fa-trash-alt deleteRef anchor" data-bs-toggle="modal"
+                                                data-bs-target="#example" title="Delete"></a></span></td>
+                                </tr>
+                                <%}%>
+                                    </tbody>
+
+                    </table>
+
+
+                </div>
+
+                <!-------------------------DELETE MODAL------------>
+
+                <div class="modal fade" id="example" tabindex="-1" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Delete Customers Request</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                Are You Sure You Want Delete This request;
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No!!!!</button>
+                                <a href='/CCB_Customers-Table/delete/<%=customersArray.data[customer].id %>'
+                                    class="btn btn-primary modalConfirm ">Yes Customer's request fulfilled </a>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!----------FOOTER----------->
+
+
+
+                <%-include('footer')%>
+            </div>
+    </div>
+    <script type="text/javascript" src='/javascripts/customers.js'></script>
+</body>
+
+</html>

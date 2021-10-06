@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%-include('head')%>
+
+
+        <title>CCB Students Edit Form</title>
+
+
+</head>
+
+<body>
+    <div id="container">
+        <!---NAVIGATOR-->
+        <%-include('navbar')%>
+
+
+            <div class="form-message main">
+                <button onclick="window.location.href='/CCB_Students-Form'" id="addBtn" class="btn-primary m-1 ">Return
+                    to
+                    CCB_Students</button>
+                <!----------FORMS--------->
+
+                <form id="form" class="basic-form ml-1" action="/CCB_Students-Form/update" method="post">
+                    <div id="form-body">
+                        <h3 class="form-heading editHeading">Edit Student</h3>
+                        <div class="form-group">
+                            <label for="id"></label>
+                            <input type="text" class="form-control basic-input hidden" name="id" id="id"
+                                placeholder="ex.23" aria-label="id" value="<%=result.id%>">
+                            <span class="error-message  editStudentError"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="first-name">First Name</label>
+                            <input type="text" class="form-control basic-input" name="fname" id="first-name"
+                                placeholder="ex.George" aria-label="First name" value="<%=result.first_name%>">
+                            <span class="error-message  editStudentError"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="last-name">Last Name</label>
+                            <input type="text" class="form-control basic-input" id="last-name" name="lname"
+                                placeholder="ex.Papadopoulos" value="<%=result.Last_name%>">
+                            <span class="error-message  editStudentError"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="birth-Date">Date Of Birth</label>
+                            <input type="date" class="form-control basic-input" name="bday" id="birth-Date"
+                                placeholder="Date" value="<%=result.date_of_birth %>">
+                            <span class="error-message  editStudentError"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="tuition-fee">Tuition Fees</label>
+                            <input type="number" class="form-control basic-input" name="tuitionFee" id="tuition-fee"
+                                placeholder="ex.2000" value="<%=result.tuition_fees%>">
+                            <span class="error-message  editStudentError"></span>
+                        </div>
+                        <div class="form-button1">
+                            <label for="submitBtn"></label>
+                            <input type="submit" class="btn btn-primary" id="submitBtn" value="Submit">
+                        </div>
+
+                    </div>
+                </form>
+
+                <%-include('footer')%>
+            </div>
+    </div>
+
+
+    <script type="text/javascript" src="/javascripts/students.js"></script>
+
+</body>
+
+</html>

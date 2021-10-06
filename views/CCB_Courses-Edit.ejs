@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%-include('head')%>
+
+
+        <title>CCB Courses Edit Form</title>
+
+
+</head>
+
+<body>
+    <div id="container">
+        <!---NAVIGATOR-->
+        <%- include('navbar') %>
+
+
+
+            <div class="form-message main">
+                <button onclick="window.location.href='/CCB_Courses-Form'" id="addBtn" class="btn-primary m-1 ">Return
+                    to
+                    CCB_Courses</button>
+
+                <form id="coursesForm" class="basic-form ml-1" action="/CCB_Courses-Form/update" method="post">
+                    <div id="form-body">
+                        <h3 class="form-heading">Edit Course</h3>
+                        <div class="form-group">
+                            <!-- <label for="id">id</label> -->
+                            <input type="text" name="id" id="id" value='<%=result.id %>' hidden readonly>
+                            <label for="first-name">Title</label>
+                            <input type="text" class="form-control basic-input" id="title" name="title"
+                                placeholder="ex.CB18" aria-label="Title" value="<%=result.title%>">
+                            <span class="error-message coursesError">
+                            </span>
+
+                        </div>
+                        <div class="form-group">
+                            <label for="last-name">Stream</label>
+                            <input type="text" class="form-control basic-input" id="stream" name="stream"
+                                placeholder="ex. Java" value="<%=result.stream%>">
+                            <span class="error-message coursesError">
+                            </span>
+                        </div>
+                        <div class="form-group">
+                            <label for="type-of-course">Select Type</label>
+                            <select class="form-select basic-input" id="type-of-course"
+                                aria-label="Default select example" name="type" value="<%= result.type %>">
+                                <option hidden selected value="Choose type of the course">Choose type of the course
+                                </option>
+                                <option value="Part-Time">Part-Time</option>
+                                <option value="Full-Time">Full-Time</option>
+                            </select>
+                            <span class="error-message type coursesError">
+                            </span>
+                        </div>
+                        <div class="form-group">
+                            <label for="start-date">Start Date</label>
+                            <input type="date" class="form-control basic-input" id="start-date" name="startDate"
+                                value="<%=result.start_date%>">
+                            <span class="error-message coursesError">
+                            </span>
+                        </div>
+                        <div class="form-group">
+                            <label for="end-date">End Date</label>
+                            <input type="date" class="form-control basic-input" id="end-date" name="endDate"
+                                value="<%=result.end_date%>">
+                            <span class="error-message coursesError">
+                            </span>
+                        </div>
+                        <div class="form-button1">
+                            <label for="submitBtn"></label>
+                            <input type="submit" class="btn btn-primary" id="submitBtn" value="Submit">
+                        </div>
+                    </div>
+                </form>
+                <!-----FOOTER---->
+                <%-include('footer')%>
+            </div>
+    </div>
+    <script type="text/javascript" src="/javascripts/courses.js"></script>
+</body>
+
+</html>

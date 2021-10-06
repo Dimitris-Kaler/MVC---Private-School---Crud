@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%-include('head')%>
+
+
+        <title>CCB Trainers Edit Form</title>
+
+
+</head>
+
+<body>
+    <div id="container">
+        <!---NAVIGATOR-->
+        <%- include('navbar')%>
+
+            <div class="form-message main">
+                <button onclick="window.location.href='/CCB_Trainers-Form'" id="addBtn" class="btn-primary m-1 ">Return
+                    to
+                    CCB_Trainers</button>
+
+                <form id="trainerForm" class="basic-form ml-1 " action="/CCB_Trainers-Form/update" method="post">
+                    <div id="form-body">
+                        <h3 class="form-heading">Edit Trainer</h3>
+                        <div class="form-group">
+                            <!-- <label for="id">id</label> -->
+                            <input type="text" name="id" id="id" value='<%=result.id %>' hidden readonly>
+                            <label for="first-name">First Name</label>
+                            <input type="text" class="form-control basic-input" id="first-name" name="fname"
+                                placeholder="ex.George" aria-label="First name" value="<%=result.first_name%>">
+                            <span class="error-message editTrainerError">
+                            </span>
+
+                        </div>
+                        <div class="form-group">
+                            <label for="last-name">Last Name</label>
+                            <input type="text" class="form-control basic-input" id="last-name" name="lname"
+                                placeholder="ex. Papadopoulos" value="<%=result.last_name%>">
+                            <span class="error-message editTrainerError">
+                            </span>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" class="form-control basic-input" id="subject" name="subject"
+                                placeholder="ex.Front end" value="<%=result.subject %>">
+                            <span class="error-message editTrainerError">
+                            </span>
+                        </div>
+                        <div class="form-button">
+                            <input type="submit" class="btn btn-primary editBtn" id="submitBtn" value="Submit">
+                        </div>
+
+                    </div>
+                </form>
+                <!------FOOTER-->
+                <%-include('footer')%>
+            </div>
+    </div>
+    <script type="text/javascript" src='/javascripts/trainers.js'></script>
+</body>
+
+</html>
