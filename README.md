@@ -14,13 +14,13 @@ Implementation of a CRUD using MVC for cube-coding-bootcamp models(trainers,cour
 
 1: Open Terminal
 
-2:npm install
+2:`npm install`
 
-3:Use the 'cube_coding_bootcamp.sql' file  to create the schema in your mysql database
+3:Use the `cube_coding_bootcamp.sql` file  to create the schema in your mysql database
 
-4:Change the credentials to the 'credentials/credentials.js'
+4:Change the credentials to the `credentials/credentials.js`
 
-5:npm run start 
+5:`npm run start`
 
 the app will be running at localhost port:3000 (http://localhost:3000/)
 
