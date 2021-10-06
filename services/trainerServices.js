@@ -1,10 +1,11 @@
 var mysql = require("mysql2");
-var dbHost = {
-    host: "localhost",
-    user: "root",
-    password: "password",
-    database: "cube_coding_bootcamp"
-}
+const dbHost = require("../credentials/credentials.js")
+// var dbHost = {
+//     host: "localhost",
+//     user: "root",
+//     password: "password",
+//     database: "cube_coding_bootcamp"
+// }
 var Trainer = require("../models/trainer")
 
 
