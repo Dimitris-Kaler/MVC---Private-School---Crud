@@ -1,6 +1,10 @@
 <link rel='stylesheet' href='/stylesheets/style.css' />
 
-<img src="/images/error404.jpg" alt="error404" id="error">
+<body class="error-body">
+
+<!-- <img src="/images/error404.jpg" alt="error404" id="error"> -->
+
+<p>Click <a href="/" class="err-href">Here</a> to return to the main page!</p>
 
 <h1>
     <%= message %>
@@ -9,3 +13,5 @@
     <%= error.status %>
 </h2>
 <pre><%= error.stack %></pre>
+
+</body>

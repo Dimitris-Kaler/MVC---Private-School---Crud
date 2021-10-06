@@ -12,11 +12,11 @@ function stringValidation(value) {
 
 
 function stringWithNumbers(value) {
-    let regex = /^[a-zA-Z0-9]*$/
+    let regex = /^[a-zA-Z0-9, ]*$/
     var result = regex.test(value)
     if (result) {
         return value
-    } else { throw new Error("Invalid Data Please Try Again!!") }
+    } else { throw new Error("Invalid Data At Title Please Try Again!!") }
 }
 
 

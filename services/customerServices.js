@@ -2,7 +2,7 @@ var mysql = require("mysql2")
 var dbHost = {
     host: "localhost",
     user: "root",
-    password: "12345",
+    password: "password",
     database: "cube_coding_bootcamp"
 }
 

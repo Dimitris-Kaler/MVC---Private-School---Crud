@@ -3,8 +3,9 @@ const Assignment = require("../models/assignment")
 var dbHost = {
     host: "localhost",
     user: "root",
-    password: "12345",
-    database: "cube_coding_bootcamp"
+    password: "password",
+    database: "cube_coding_bootcamp",
+    dateStrings: true
 }
 
 
