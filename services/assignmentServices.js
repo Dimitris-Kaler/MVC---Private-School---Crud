@@ -1,13 +1,7 @@
 var mysql = require("mysql2")
 const dbHost = require("../credentials/credentials.js")
 const Assignment = require("../models/assignment")
-// var dbHost = {
-//     host: "localhost",
-//     user: "root",
-//     password: "password",
-//     database: "cube_coding_bootcamp",
-//     dateStrings: true
-// }
+
 
 
 async function conDb(sql) {

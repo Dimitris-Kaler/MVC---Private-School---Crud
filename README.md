@@ -5,8 +5,9 @@ PeopleCert - Assignment-2 CRUD
 Implementation of a CRUD using MVC for cube-coding-bootcamp models(trainers,courses,assignments,students)
 
 # Required Technologies
-1.NODE/EXPRESS.JS 
-2.MYSQL 
+1:NODE/EXPRESS.JS 
+
+2:MYSQL 
 
 
 # How To Run The App
